@@ -1,13 +1,12 @@
 import {
-	Button,
 	Dimensions,
 	ImageBackground,
-	Pressable,
 	StyleSheet,
 	Text,
 	View
 } from 'react-native';
-import { Colors, FontSize, Gaps, Radius } from './shared/tokens';
+import { Colors, FontSize, Gaps } from './shared/tokens';
+import Button from './shared/Button/Button';
 
 export default function App() {
 	const d = Dimensions.get('window');
@@ -18,7 +17,7 @@ export default function App() {
 				style={{
 					...styles.image,
 					width: d.width + 46 * 2,
-					marginTop: -(d.height / 100) * 53
+					marginTop: -(d.height / 100) * 50
 				}}
 				resizeMode="contain"
 			>
@@ -31,9 +30,7 @@ export default function App() {
 							Свежие зёрна, настоящая арабика и бережная обжарка
 						</Text>
 					</View>
-					<Pressable style={styles.btn}>
-						<Text style={styles.text}>Начать</Text>
-					</Pressable>
+					<Button text={'Начать'} />
 				</View>
 			</ImageBackground>
 		</View>
@@ -47,21 +44,17 @@ const styles = StyleSheet.create({
 
 		justifyContent: 'flex-end'
 	},
-	btn: {
-		borderRadius: Radius.r16,
-		backgroundColor: Colors.primary,
-		paddingHorizontal: 109,
-		paddingVertical: 21
-	},
-	text: {
-		fontSize: FontSize.f16,
-		color: Colors.light,
-		fontWeight: '600'
-	},
 	image: {
 		flex: 1,
 		alignSelf: 'center',
 		justifyContent: 'flex-end'
+	},
+	content: {
+		gap: Gaps.g24,
+		marginHorizontal: 46,
+		alignItems: 'center',
+		paddingHorizontal: 30,
+		paddingVertical: 41
 	},
 	title: {
 		color: Colors.light,
@@ -76,12 +69,5 @@ const styles = StyleSheet.create({
 		fontSize: FontSize.f14,
 		textAlign: 'center',
 		letterSpacing: 0.4
-	},
-	content: {
-		gap: Gaps.g24,
-		marginHorizontal: 46,
-		alignItems: 'center',
-		paddingHorizontal: 30,
-		paddingVertical: 41
 	}
 });
