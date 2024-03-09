@@ -8,6 +8,10 @@ import {
 import { Colors, FontSize, Gaps } from './shared/tokens';
 import Button from './shared/Button/Button';
 
+const WIDTH_SCALE_VERTICAL = 46;
+const WIDTH_SCALE = WIDTH_SCALE_VERTICAL * 2;
+const TOP_MARGIN_PERCENT = 0.5;
+
 export default function App() {
 	const d = Dimensions.get('window');
 	return (
@@ -16,8 +20,8 @@ export default function App() {
 				source={require('./assets/backgraund.png')}
 				style={{
 					...styles.image,
-					width: d.width + 46 * 2,
-					marginTop: -(d.height / 100) * 50
+					width: d.width + WIDTH_SCALE,
+					marginTop: -d.height * TOP_MARGIN_PERCENT
 				}}
 				resizeMode="contain"
 			>
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
 	},
 	content: {
 		gap: Gaps.g24,
-		marginHorizontal: 46,
+		marginHorizontal: WIDTH_SCALE_VERTICAL,
 		alignItems: 'center',
 		paddingHorizontal: 30,
 		paddingVertical: 41
